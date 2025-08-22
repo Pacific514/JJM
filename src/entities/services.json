@@ -1,0 +1,86 @@
+
+{
+  "name": "services",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["serviceId", "categoryFr", "categoryEn", "nameFr", "nameEn", "descriptionFr", "descriptionEn", "basePrice", "duration", "isActive"],
+        "properties": {
+          "serviceId": {
+            "bsonType": "string",
+            "description": "Identifiant unique du service"
+          },
+          "categoryFr": {
+            "bsonType": "string",
+            "description": "Catégorie en français"
+          },
+          "categoryEn": {
+            "bsonType": "string", 
+            "description": "Catégorie en anglais"
+          },
+          "nameFr": {
+            "bsonType": "string",
+            "description": "Nom du service en français"
+          },
+          "nameEn": {
+            "bsonType": "string",
+            "description": "Nom du service en anglais"
+          },
+          "descriptionFr": {
+            "bsonType": "string",
+            "description": "Description en français"
+          },
+          "descriptionEn": {
+            "bsonType": "string",
+            "description": "Description en anglais"
+          },
+          "basePrice": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Prix de base du service"
+          },
+          "pricePerKm": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Prix par kilomètre de déplacement"
+          },
+          "duration": {
+            "bsonType": "int",
+            "minimum": 15,
+            "description": "Durée estimée en minutes"
+          },
+          "isActive": {
+            "bsonType": "bool",
+            "description": "Service actif ou non"
+          },
+          "imageUrl": {
+            "bsonType": "string",
+            "description": "URL de l'image du service"
+          },
+          "options": {
+            "bsonType": "array",
+            "description": "Options disponibles pour ce service"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Créateur du service"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Date de création ISO 8601"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime", 
+            "description": "Date de mise à jour ISO 8601"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

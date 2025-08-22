@@ -1,0 +1,92 @@
+
+{
+  "name": "appointments",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["appointmentId", "customerName", "customerEmail", "serviceIds", "scheduledDate", "status"],
+        "properties": {
+          "appointmentId": {
+            "bsonType": "string",
+            "description": "Identifiant unique du rendez-vous"
+          },
+          "customerName": {
+            "bsonType": "string",
+            "description": "Nom du client"
+          },
+          "customerEmail": {
+            "bsonType": "string",
+            "description": "Email du client"
+          },
+          "customerPhone": {
+            "bsonType": "string",
+            "description": "Téléphone du client"
+          },
+          "customerAddress": {
+            "bsonType": "string",
+            "description": "Adresse du client"
+          },
+          "serviceIds": {
+            "bsonType": "array",
+            "description": "IDs des services sélectionnés"
+          },
+          "scheduledDate": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Date et heure du rendez-vous"
+          },
+          "duration": {
+            "bsonType": "int",
+            "minimum": 15,
+            "description": "Durée estimée en minutes"
+          },
+          "totalPrice": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Prix total du service"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["pending", "confirmed", "completed", "cancelled"],
+            "description": "Statut du rendez-vous"
+          },
+          "paymentStatus": {
+            "bsonType": "string",
+            "enum": ["pending", "paid", "failed", "refunded"],
+            "description": "Statut du paiement"
+          },
+          "googleEventId": {
+            "bsonType": "string",
+            "description": "ID de l'événement Google Agenda"
+          },
+          "squarePaymentId": {
+            "bsonType": "string",
+            "description": "ID de transaction Square"
+          },
+          "notes": {
+            "bsonType": "string",
+            "description": "Notes additionnelles"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Créateur du rendez-vous"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Date de création"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Date de mise à jour"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

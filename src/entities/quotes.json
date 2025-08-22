@@ -1,0 +1,107 @@
+
+{
+  "name": "quotes",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["quoteId", "customerName", "customerEmail", "selectedServices", "totalPrice", "status"],
+        "properties": {
+          "quoteId": {
+            "bsonType": "string",
+            "description": "Identifiant unique du devis"
+          },
+          "customerName": {
+            "bsonType": "string",
+            "description": "Nom du client"
+          },
+          "customerEmail": {
+            "bsonType": "string",
+            "description": "Email du client"
+          },
+          "customerPhone": {
+            "bsonType": "string",
+            "description": "Téléphone du client"
+          },
+          "customerAddress": {
+            "bsonType": "string",
+            "description": "Adresse du client"
+          },
+          "selectedServices": {
+            "bsonType": "array",
+            "description": "Services sélectionnés",
+            "items": {
+              "bsonType": "object",
+              "properties": {
+                "serviceId": {"bsonType": "string"},
+                "serviceName": {"bsonType": "string"},
+                "price": {"bsonType": "number"}
+              }
+            }
+          },
+          "distance": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Distance de déplacement en km"
+          },
+          "travelCost": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Coût de déplacement"
+          },
+          "subtotal": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Sous-total services"
+          },
+          "taxes": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Taxes"
+          },
+          "totalPrice": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Prix total"
+          },
+          "preferredDate": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Date préférée pour le service"
+          },
+          "notes": {
+            "bsonType": "string",
+            "description": "Notes du client"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["pending", "confirmed", "completed", "cancelled"],
+            "description": "Statut du devis"
+          },
+          "language": {
+            "bsonType": "string",
+            "enum": ["fr", "en"],
+            "description": "Langue du devis"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Créateur du devis"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Date de création ISO 8601"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Date de mise à jour ISO 8601"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

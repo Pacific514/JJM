@@ -1,0 +1,89 @@
+
+{
+  "name": "invoices",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["invoiceId", "customerEmail", "customerName", "services", "total", "status", "createdAt"],
+        "properties": {
+          "invoiceId": {
+            "bsonType": "string",
+            "description": "Identifiant unique de la facture"
+          },
+          "customerEmail": {
+            "bsonType": "string",
+            "description": "Email du client"
+          },
+          "customerName": {
+            "bsonType": "string",
+            "description": "Nom du client"
+          },
+          "customerPhone": {
+            "bsonType": "string",
+            "description": "Téléphone du client"
+          },
+          "serviceAddress": {
+            "bsonType": "string",
+            "description": "Adresse du service"
+          },
+          "services": {
+            "bsonType": "array",
+            "description": "Services facturés"
+          },
+          "distance": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Distance en km"
+          },
+          "subtotal": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Sous-total"
+          },
+          "taxes": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Montant des taxes"
+          },
+          "total": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Total facturé"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["paid", "pending", "cancelled", "refunded"],
+            "description": "Statut de la facture"
+          },
+          "paymentMethod": {
+            "bsonType": "string",
+            "description": "Méthode de paiement"
+          },
+          "serviceDate": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Date du service"
+          },
+          "notes": {
+            "bsonType": "string",
+            "description": "Notes additionnelles"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Date de création"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Date de mise à jour"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
